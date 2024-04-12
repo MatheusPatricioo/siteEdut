@@ -1,0 +1,841 @@
+{
+    "is-c3-clipboard-data": true,
+    "type": "events",
+    "items": [
+      {
+        "eventType": "include",
+        "includeSheet": "Game_Controller"
+      },
+      {
+        "eventType": "variable",
+        "name": "contador",
+        "type": "number",
+        "initialValue": "0",
+        "comment": "",
+        "isStatic": false,
+        "isConstant": false
+      },
+      {
+        "eventType": "variable",
+        "name": "pecas_max",
+        "type": "number",
+        "initialValue": "0",
+        "comment": "",
+        "isStatic": false,
+        "isConstant": false
+      },
+      {
+        "eventType": "variable",
+        "name": "contador_layout",
+        "type": "number",
+        "initialValue": "0",
+        "comment": "",
+        "isStatic": false,
+        "isConstant": false
+      },
+      {
+        "eventType": "block",
+        "conditions": [
+          {
+            "id": "on-start-of-layout",
+            "objectClass": "System"
+          }
+        ],
+        "actions": [
+          {
+            "id": "set-eventvar-value",
+            "objectClass": "System",
+            "parameters": {
+              "variable": "contador",
+              "value": "0"
+            }
+          },
+          {
+            "id": "set-eventvar-value",
+            "objectClass": "System",
+            "parameters": {
+              "variable": "pecas_max",
+              "value": "0"
+            }
+          },
+          {
+            "id": "set-eventvar-value",
+            "objectClass": "System",
+            "parameters": {
+              "variable": "contador_layout",
+              "value": "0"
+            }
+          },
+          {
+            "id": "set-visible",
+            "objectClass": "Ativo16",
+            "disabled": true,
+            "parameters": {
+              "visibility": "visible"
+            }
+          }
+        ],
+        "children": [
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "compare-instance-variable",
+                "objectClass": "next",
+                "parameters": {
+                  "instance-variable": "next",
+                  "comparison": 0,
+                  "value": "0"
+                }
+              }
+            ],
+            "actions": [
+              {
+                "id": "set-animation-speed",
+                "objectClass": "personas",
+                "parameters": {
+                  "speed": "5"
+                }
+              },
+              {
+                "id": "tween-one-property",
+                "objectClass": "personas",
+                "behaviorType": "Tween",
+                "parameters": {
+                  "tags": "\"personas\"",
+                  "property": "offsetX",
+                  "end-value": "244",
+                  "time": "3",
+                  "ease": "default",
+                  "destroy-on-complete": "no",
+                  "loop": "no",
+                  "ping-pong": "no"
+                }
+              },
+              {
+                "id": "wait",
+                "objectClass": "System",
+                "parameters": {
+                  "seconds": "2.9"
+                }
+              },
+              {
+                "id": "set-animation-speed",
+                "objectClass": "personas",
+                "parameters": {
+                  "speed": "0"
+                }
+              },
+              {
+                "id": "set-animation-frame",
+                "objectClass": "personas",
+                "parameters": {
+                  "frame-number": "5"
+                }
+              },
+              {
+                "id": "stop-tweens",
+                "objectClass": "personas",
+                "disabled": true,
+                "behaviorType": "Tween",
+                "parameters": {
+                  "tags": "\"personas\""
+                }
+              }
+            ]
+          },
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "compare-instance-variable",
+                "objectClass": "next",
+                "parameters": {
+                  "instance-variable": "next",
+                  "comparison": 0,
+                  "value": "3"
+                }
+              }
+            ],
+            "actions": [
+              {
+                "id": "set-animation-speed",
+                "objectClass": "personas2",
+                "parameters": {
+                  "speed": "5"
+                }
+              },
+              {
+                "id": "tween-one-property",
+                "objectClass": "personas2",
+                "behaviorType": "Tween",
+                "parameters": {
+                  "tags": "\"personas\"",
+                  "property": "offsetX",
+                  "end-value": "1734",
+                  "time": "6",
+                  "ease": "default",
+                  "destroy-on-complete": "no",
+                  "loop": "no",
+                  "ping-pong": "no"
+                }
+              },
+              {
+                "id": "wait",
+                "objectClass": "System",
+                "parameters": {
+                  "seconds": "5"
+                }
+              },
+              {
+                "id": "set-animation-speed",
+                "objectClass": "personas2",
+                "parameters": {
+                  "speed": "0"
+                }
+              },
+              {
+                "id": "set-animation-frame",
+                "objectClass": "personas2",
+                "parameters": {
+                  "frame-number": "5"
+                }
+              },
+              {
+                "id": "wait",
+                "objectClass": "System",
+                "disabled": true,
+                "parameters": {
+                  "seconds": "2"
+                }
+              },
+              {
+                "id": "go-to-layout",
+                "objectClass": "System",
+                "parameters": {
+                  "layout": "Fim"
+                }
+              },
+              {
+                "id": "stop-tweens",
+                "objectClass": "personas",
+                "disabled": true,
+                "behaviorType": "Tween",
+                "parameters": {
+                  "tags": "\"personas\""
+                }
+              }
+            ]
+          },
+          {
+            "eventType": "block",
+            "conditions": [],
+            "actions": [
+              {
+                "id": "set-instvar-value",
+                "objectClass": "solidos",
+                "parameters": {
+                  "instance-variable": "inicio_x",
+                  "value": "solidos.X"
+                }
+              },
+              {
+                "id": "set-instvar-value",
+                "objectClass": "solidos",
+                "parameters": {
+                  "instance-variable": "inicio_y",
+                  "value": "solidos.Y"
+                }
+              }
+            ]
+          },
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "for-each-ordered",
+                "objectClass": "System",
+                "parameters": {
+                  "object": "solidos",
+                  "expression": "0",
+                  "order": "ascending"
+                }
+              }
+            ],
+            "actions": [
+              {
+                "id": "add-to-eventvar",
+                "objectClass": "System",
+                "parameters": {
+                  "variable": "pecas_max",
+                  "value": "1"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "eventType": "comment",
+        "text": ""
+      },
+      {
+        "eventType": "block",
+        "conditions": [
+          {
+            "id": "is-dragging",
+            "objectClass": "solidos",
+            "behaviorType": "DragDrop"
+          }
+        ],
+        "actions": [
+          {
+            "id": "move-to-top",
+            "objectClass": "solidos"
+          },
+          {
+            "id": "set-animation-frame",
+            "objectClass": "luvinha",
+            "parameters": {
+              "frame-number": "8"
+            }
+          }
+        ]
+      },
+      {
+        "eventType": "block",
+        "conditions": [
+          {
+            "id": "on-drop",
+            "objectClass": "solidos",
+            "behaviorType": "DragDrop"
+          }
+        ],
+        "actions": [],
+        "children": [
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "is-overlapping-another-object",
+                "objectClass": "solidos",
+                "parameters": {
+                  "object": "objetos_resposta"
+                },
+                "isInverted": true
+              }
+            ],
+            "actions": [],
+            "children": [
+              {
+                "eventType": "block",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "set-position",
+                    "objectClass": "solidos",
+                    "parameters": {
+                      "x": "solidos.inicio_x",
+                      "y": "solidos.inicio_y"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "is-overlapping-another-object",
+                "objectClass": "solidos",
+                "parameters": {
+                  "object": "objetos_resposta"
+                }
+              }
+            ],
+            "actions": [],
+            "children": [
+              {
+                "eventType": "block",
+                "conditions": [
+                  {
+                    "id": "compare-two-values",
+                    "objectClass": "System",
+                    "parameters": {
+                      "first-value": "solidos.valor",
+                      "comparison": 0,
+                      "second-value": "objetos_resposta.valor"
+                    }
+                  }
+                ],
+                "actions": [],
+                "children": [
+                  {
+                    "eventType": "block",
+                    "conditions": [],
+                    "actions": [
+                      {
+                        "id": "add-to-eventvar",
+                        "objectClass": "System",
+                        "parameters": {
+                          "variable": "contador_layout",
+                          "value": "1"
+                        }
+                      },
+                      {
+                        "id": "add-to-eventvar",
+                        "objectClass": "System",
+                        "parameters": {
+                          "variable": "acertos",
+                          "value": "1"
+                        }
+                      },
+                      {
+                        "id": "add-to-eventvar",
+                        "objectClass": "System",
+                        "parameters": {
+                          "variable": "tentativas",
+                          "value": "1"
+                        }
+                      },
+                      {
+                        "id": "play",
+                        "objectClass": "Audio",
+                        "parameters": {
+                          "audio-file": "acerto",
+                          "loop": "not-looping",
+                          "volume": "-10",
+                          "stereo-pan": "0",
+                          "tag-optional": "\"Particula\""
+                        }
+                      },
+                      {
+                        "id": "spawn-another-object",
+                        "objectClass": "solidos",
+                        "parameters": {
+                          "object": "Particle_Certin",
+                          "layer": "4",
+                          "image-point": "0",
+                          "create-hierarchy": false
+                        }
+                      },
+                      {
+                        "id": "set-boolean-instvar",
+                        "objectClass": "solidos",
+                        "parameters": {
+                          "instance-variable": "acertou",
+                          "value": "true"
+                        }
+                      },
+                      {
+                        "id": "set-position",
+                        "objectClass": "solidos",
+                        "parameters": {
+                          "x": "objetos_resposta.X",
+                          "y": "objetos_resposta.Y"
+                        }
+                      },
+                      {
+                        "id": "tween-two-properties",
+                        "objectClass": "solidos",
+                        "behaviorType": "Tween",
+                        "parameters": {
+                          "tags": "\"\"",
+                          "property": "scale",
+                          "end-x": "1.0873",
+                          "end-y": "1.0873",
+                          "time": "1.5",
+                          "ease": "easeoutelastic",
+                          "destroy-on-complete": "no",
+                          "loop": "no",
+                          "ping-pong": "no"
+                        }
+                      },
+                      {
+                        "id": "set-enabled",
+                        "objectClass": "solidos",
+                        "behaviorType": "DragDrop",
+                        "parameters": {
+                          "state": "disabled"
+                        }
+                      },
+                      {
+                        "id": "stop",
+                        "objectClass": "Audio",
+                        "disabled": true,
+                        "parameters": {
+                          "tag": "\"brinquedo\""
+                        }
+                      },
+                      {
+                        "id": "play-by-name",
+                        "objectClass": "Audio",
+                        "parameters": {
+                          "folder": "sounds",
+                          "audio-file-name": "str(solidos.AnimationFrame)",
+                          "loop": "not-looping",
+                          "volume": "0",
+                          "stereo-pan": "0",
+                          "tag-optional": "\"brinquedo\""
+                        }
+                      },
+                      {
+                        "id": "destroy",
+                        "objectClass": "objetos_resposta"
+                      },
+                      {
+                        "id": "add-to-eventvar",
+                        "objectClass": "System",
+                        "parameters": {
+                          "variable": "contador",
+                          "value": "1"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "eventType": "block",
+                    "conditions": [
+                      {
+                        "id": "compare-instance-variable",
+                        "objectClass": "solidos",
+                        "disabled": true,
+                        "parameters": {
+                          "instance-variable": "valor",
+                          "comparison": 0,
+                          "value": "objetos_resposta.valor"
+                        }
+                      }
+                    ],
+                    "actions": [
+                      {
+                        "id": "tween-two-properties",
+                        "objectClass": "solidos",
+                        "behaviorType": "Tween",
+                        "parameters": {
+                          "tags": "\"size\"",
+                          "property": "size",
+                          "end-x": "00.1",
+                          "end-y": "00.1",
+                          "time": "3",
+                          "ease": "easeoutelastic",
+                          "destroy-on-complete": "no",
+                          "loop": "no",
+                          "ping-pong": "no"
+                        }
+                      },
+                      {
+                        "id": "tween-two-properties",
+                        "objectClass": "solidos",
+                        "behaviorType": "Tween",
+                        "parameters": {
+                          "tags": "\"position\"",
+                          "property": "position",
+                          "end-x": "location_obj.X",
+                          "end-y": "location_obj.Y",
+                          "time": "4",
+                          "ease": "easeoutelastic",
+                          "destroy-on-complete": "no",
+                          "loop": "no",
+                          "ping-pong": "no"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "compare-two-values",
+                "objectClass": "System",
+                "parameters": {
+                  "first-value": "solidos.valor",
+                  "comparison": 1,
+                  "second-value": "objetos_resposta.valor"
+                }
+              }
+            ],
+            "actions": [
+              {
+                "id": "add-to-eventvar",
+                "objectClass": "System",
+                "parameters": {
+                  "variable": "tentativas",
+                  "value": "1"
+                }
+              },
+              {
+                "id": "set-position",
+                "objectClass": "solidos",
+                "parameters": {
+                  "x": "solidos.inicio_x",
+                  "y": "solidos.inicio_y"
+                }
+              },
+              {
+                "id": "play",
+                "objectClass": "Audio",
+                "parameters": {
+                  "audio-file": "ops",
+                  "loop": "not-looping",
+                  "volume": "-15",
+                  "stereo-pan": "0",
+                  "tag-optional": "\"Particula\""
+                }
+              },
+              {
+                "id": "spawn-another-object",
+                "objectClass": "objetos_resposta",
+                "parameters": {
+                  "object": "Particle_Errado",
+                  "layer": "4",
+                  "image-point": "0",
+                  "create-hierarchy": false
+                }
+              }
+            ]
+          },
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "compare-eventvar",
+                "objectClass": "System",
+                "parameters": {
+                  "variable": "contador_layout",
+                  "comparison": 0,
+                  "value": "3"
+                }
+              }
+            ],
+            "actions": [
+              {
+                "id": "set-visible",
+                "objectClass": "Ativo16",
+                "parameters": {
+                  "visibility": "visible"
+                }
+              },
+              {
+                "id": "wait",
+                "objectClass": "System",
+                "parameters": {
+                  "seconds": "3"
+                }
+              },
+              {
+                "id": "go-to-nextprevious-layout",
+                "objectClass": "System",
+                "parameters": {
+                  "which": "next"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "functionName": "Habilita_drag",
+        "functionDescription": "",
+        "functionCategory": "",
+        "functionReturnType": "none",
+        "functionCopyPicked": false,
+        "functionIsAsync": false,
+        "functionParameters": [],
+        "eventType": "function-block",
+        "conditions": [],
+        "actions": [],
+        "children": [
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "pick-all",
+                "objectClass": "System",
+                "parameters": {
+                  "object": "solidos"
+                }
+              }
+            ],
+            "actions": [],
+            "children": [
+              {
+                "eventType": "block",
+                "conditions": [
+                  {
+                    "id": "is-boolean-instance-variable-set",
+                    "objectClass": "solidos",
+                    "parameters": {
+                      "instance-variable": "acertou"
+                    },
+                    "isInverted": true
+                  }
+                ],
+                "actions": [
+                  {
+                    "id": "set-enabled",
+                    "objectClass": "solidos",
+                    "behaviorType": "DragDrop",
+                    "parameters": {
+                      "state": "enabled"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "functionName": "Desabilita_drag",
+        "functionDescription": "",
+        "functionCategory": "",
+        "functionReturnType": "none",
+        "functionCopyPicked": false,
+        "functionIsAsync": false,
+        "functionParameters": [],
+        "eventType": "function-block",
+        "conditions": [],
+        "actions": [],
+        "children": [
+          {
+            "eventType": "block",
+            "conditions": [
+              {
+                "id": "pick-all",
+                "objectClass": "System",
+                "parameters": {
+                  "object": "solidos"
+                }
+              }
+            ],
+            "actions": [
+              {
+                "id": "set-enabled",
+                "objectClass": "solidos",
+                "behaviorType": "DragDrop",
+                "parameters": {
+                  "state": "disabled"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "eventType": "block",
+        "conditions": [
+          {
+            "id": "compare-eventvar",
+            "objectClass": "System",
+            "parameters": {
+              "variable": "contador",
+              "comparison": 0,
+              "value": "pecas_max"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "wait",
+            "objectClass": "System",
+            "parameters": {
+              "seconds": "2"
+            }
+          }
+        ]
+      },
+      {
+        "eventType": "block",
+        "conditions": [
+          {
+            "id": "on-touched-object",
+            "objectClass": "Touch",
+            "parameters": {
+              "object": "objetos_resposta"
+            }
+          },
+          {
+            "id": "is-boolean-instance-variable-set",
+            "objectClass": "instrucao",
+            "parameters": {
+              "instance-variable": "ativar"
+            },
+            "isInverted": true
+          },
+          {
+            "id": "is-tag-playing",
+            "objectClass": "Audio",
+            "parameters": {
+              "tag": "\"brinquedo\""
+            },
+            "isInverted": true
+          }
+        ],
+        "actions": [
+          {
+            "id": "play-by-name",
+            "objectClass": "Audio",
+            "parameters": {
+              "folder": "sounds",
+              "audio-file-name": "objetos_resposta.nome_audio",
+              "loop": "not-looping",
+              "volume": "0",
+              "stereo-pan": "0",
+              "tag-optional": "\"brinquedo\""
+            }
+          }
+        ]
+      },
+      {
+        "eventType": "block",
+        "conditions": [
+          {
+            "id": "compare-instance-variable",
+            "objectClass": "next",
+            "parameters": {
+              "instance-variable": "next",
+              "comparison": 0,
+              "value": "0"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "wait",
+            "objectClass": "System",
+            "parameters": {
+              "seconds": "2"
+            }
+          }
+        ]
+      },
+      {
+        "eventType": "block",
+        "conditions": [
+          {
+            "id": "is-tag-playing",
+            "objectClass": "Audio",
+            "parameters": {
+              "tag": "\"brinquedo\""
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "stop",
+            "objectClass": "Audio",
+            "parameters": {
+              "tag": "\"brinquedo\""
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
